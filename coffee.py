@@ -18,9 +18,9 @@ my_canvas.create_image(0,0, image=bg, anchor="nw")
 #my_canvas.create_text(700, 200, text="The Best In Town", font=("Segoe Script", 20),  anchor="nw")
 
 
-button1 = Button(text="Tea", bg="white", fg="black", pady=10, padx=30)
-button2 = Button(text="Coffee", bg="white", fg="black", pady=10, padx=30)
-button3 = Button(text="Voice Command", bg="white", fg="black", pady=10, padx=30)
+button1 = Button(text="Tea", bg="#8B3E2F", fg="white", pady=10, padx=30)
+button2 = Button(text="Coffee", bg="#8B3E2F", fg="white", pady=10, padx=30)
+button3 = Button(text="Voice Command", bg="#8B3E2F", fg="white", pady=10, padx=30)
 
 
 button1_window = my_canvas.create_window(200, 400, anchor="nw", window=button1)
