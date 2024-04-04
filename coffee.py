@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 from PIL import ImageTk, Image
 
 def open_coffee_options():
@@ -44,15 +45,41 @@ def open_coffee_options():
         my_canvas2.create_text(400, 100, text="ArdaCiti Coffee Shop", font=("Segoe Script", 40))
         my_canvas2.create_text(400, 150, text="The Best In Town", font=("Segoe Script", 20))
         # Add coffee options
-        my_canvas2.create_image(50,300, image=cuppaccino, anchor="nw")
-        my_canvas2.create_image(300,300, image=espresso, anchor="nw")
-        my_canvas2.create_image(600,280, image=latte, anchor="nw")
-        my_canvas2.create_image(-20,500, image=macch, anchor="nw")
-        my_canvas2.create_image(310,500, image=mocha, anchor="nw")
-        my_canvas2.create_image(580,500, image=ameri, anchor="nw")
-
+        my_canvas2.create_image(50,300, image=cuppaccino, anchor="nw", tags="cuppaccino")
+        my_canvas2.create_image(300,300, image=espresso, anchor="nw", tags="espresso")
+        my_canvas2.create_image(600,265, image=latte, anchor="nw", tags="latte")
+        my_canvas2.create_image(-25,550, image=macch, anchor="nw", tags="macch")
+        my_canvas2.create_image(330,550, image=mocha, anchor="nw", tags="mocha")
+        my_canvas2.create_image(550,550, image=ameri, anchor="nw", tags="ameri")
+        # Add text under each image
+        my_canvas2.create_text(70, 480, text="Cuppaccino", font=("Arial", 14), anchor="nw")
+        my_canvas2.create_text(350, 480, text="Espresso", font=("Arial", 14), anchor="nw")
+        my_canvas2.create_text(650, 480, text="Latte", font=("Arial", 14), anchor="nw")
+        my_canvas2.create_text(90, 700, text="Macchiato", font=("Arial", 14), anchor="nw")
+        my_canvas2.create_text(360, 700, text="Mocha", font=("Arial", 14), anchor="nw")
+        my_canvas2.create_text(635, 700, text="Americano", font=("Arial", 14), anchor="nw")
 
     root.bind('<Configure>', resized)
+
+    def on_click(event):
+        # get clicked item
+        item = event.widget.find_closest(event.x, event.y)[0]
+        
+        if "cuppaccino" in my_canvas2.gettags(item):
+            messagebox.showinfo("Cuppaccino Clicked", "You clicked on Cuppaccino!")
+        elif "espresso" in my_canvas2.gettags(item):
+            print("espresson clicked")
+        elif "latte" in my_canvas2.gettags(item):
+            print("Latte clicked")
+        elif "macch" in my_canvas2.gettags(item):
+            print("Macchiato clicked")
+        elif "mocha" in my_canvas2.gettags(item):
+            print("Mocha clicked")
+        elif 'ameri' in my_canvas2.gettags(item):
+            print("Americano clicked")
+
+    my_canvas2.bind("<Button-1>", on_click)
+
 
 def open_tea_options():
     # Hide the main menu buttons
@@ -68,7 +95,7 @@ def open_tea_options():
     # tea options
     rooibos = PhotoImage(file="images/rooibos.png").subsample(3)
     peppermint = PhotoImage(file="images/peppermint.png").subsample(3)
-    greantea = PhotoImage(file="images/greentea.png").subsample(3)
+    greentea = PhotoImage(file="images/greentea.png").subsample(3)
     cinnamon = PhotoImage(file="images/cinnamon.png").subsample(3)
     chamomile = PhotoImage(file="images/chamomile.png").subsample(2)
     ceylon = PhotoImage(file="images/ceylon.png")
@@ -93,15 +120,38 @@ def open_tea_options():
         my_canvas3.create_text(400, 100, text="ArdaCiti Coffee Shop", font=("Segoe Script", 40))
         my_canvas3.create_text(400, 150, text="The Best In Town", font=("Segoe Script", 20))
         # Add images
-        my_canvas3.create_image(50,300, image=rooibos, anchor="nw")
-        my_canvas3.create_image(350,300, image=peppermint, anchor="nw")
-        my_canvas3.create_image(600,300, image=greantea, anchor="nw")
-        my_canvas3.create_image(60,550, image=cinnamon, anchor="nw")
-        my_canvas3.create_image(240,550, image=chamomile, anchor="nw")
-        my_canvas3.create_image(580,500, image=ceylon, anchor="nw")
+        my_canvas3.create_image(50,300, image=rooibos, anchor="nw", tags="rooibos")
+        my_canvas3.create_image(350,300, image=peppermint, anchor="nw", tags="peppermint")
+        my_canvas3.create_image(600,300, image=greentea, anchor="nw", tags="greentea")
+        my_canvas3.create_image(60,550, image=cinnamon, anchor="nw", tags="cinnamon")
+        my_canvas3.create_image(240,550, image=chamomile, anchor="nw", tags="chamomile")
+        my_canvas3.create_image(580,500, image=ceylon, anchor="nw", tags="ceylon")
+        # Add text under each image
+        
+
+
+
+
     root.bind('<Configure>', resized)
 
+    def on_click(event):
+        # get clicked item
+        item = event.widget.find_closest(event.x, event.y)[0]
+        
+        if "rooibos" in my_canvas3.gettags(item):
+            messagebox.showinfo("Rooibos Clicked", "You clicked on rooibos!")
+        elif "peppermint" in my_canvas3.gettags(item):
+            print("Peppermint clicked")
+        elif "greentea" in my_canvas3.gettags(item):
+            print("Greentea clicked")
+        elif "cinnamon" in my_canvas3.gettags(item):
+            print("Cinnamon clicked")
+        elif "chamomile" in my_canvas3.gettags(item):
+            print("Chamomile clicked")
+        elif 'ceylon' in my_canvas3.gettags(item):
+            print("Ceylon clicked")
 
+    my_canvas3.bind("<Button-1>", on_click)
 
 
 
@@ -142,6 +192,7 @@ def resizer(e):
     my_canvas.create_text(400, 100, text="ArdaCiti Coffee Shop", font=("Segoe Script", 40))
     my_canvas.create_text(400, 150, text="The Best In Town", font=("Segoe Script", 20) )
 root.bind('<Configure>', resizer)  
+
 
 
 root.mainloop()
