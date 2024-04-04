@@ -14,7 +14,7 @@ def open_coffee_options():
     coffee_bg = PhotoImage(file="images/c-beans.png")
     # coffee options
     cuppaccino = PhotoImage(file="images/cuppaccino.png").subsample(3)
-    expresso = PhotoImage(file="images/expresso.png").subsample(3)
+    espresso = PhotoImage(file="images/espresso.png").subsample(3)
     latte = PhotoImage(file="images/latte.png").subsample(3)
     macch = PhotoImage(file="images/macch.png").subsample(2)
     mocha = PhotoImage(file="images/mocha.png").subsample(3)
@@ -45,7 +45,7 @@ def open_coffee_options():
         my_canvas2.create_text(400, 150, text="The Best In Town", font=("Segoe Script", 20))
         # Add coffee options
         my_canvas2.create_image(50,300, image=cuppaccino, anchor="nw")
-        my_canvas2.create_image(300,300, image=expresso, anchor="nw")
+        my_canvas2.create_image(300,300, image=espresso, anchor="nw")
         my_canvas2.create_image(600,280, image=latte, anchor="nw")
         my_canvas2.create_image(-20,500, image=macch, anchor="nw")
         my_canvas2.create_image(310,500, image=mocha, anchor="nw")
@@ -64,12 +64,13 @@ def open_tea_options():
     tea_frame = Frame(root)
     tea_frame.place(relx=0.5, rely=0.5, anchor="center")
     # define images
-    tea_bg = PhotoImage(file="images/tea.png")
-    rooibos = PhotoImage(file="images/rooibos.png")
-    peppermint = PhotoImage(file="images/peppermint.png")
-    greantea = PhotoImage(file="images/greentea.png")
-    cinnamon = PhotoImage(file="images/cinnamon.png")
-    chamomile = PhotoImage(file="images/chamomile.png")
+    tea_bg = PhotoImage(file="images/tea.png") # background image
+    # tea options
+    rooibos = PhotoImage(file="images/rooibos.png").subsample(3)
+    peppermint = PhotoImage(file="images/peppermint.png").subsample(3)
+    greantea = PhotoImage(file="images/greentea.png").subsample(3)
+    cinnamon = PhotoImage(file="images/cinnamon.png").subsample(3)
+    chamomile = PhotoImage(file="images/chamomile.png").subsample(2)
     ceylon = PhotoImage(file="images/ceylon.png")
     # create a canvas
     my_canvas3 = Canvas(tea_frame, width=1600, height=900)
@@ -92,12 +93,12 @@ def open_tea_options():
         my_canvas3.create_text(400, 100, text="ArdaCiti Coffee Shop", font=("Segoe Script", 40))
         my_canvas3.create_text(400, 150, text="The Best In Town", font=("Segoe Script", 20))
         # Add images
-        my_canvas3.create_image(0,0, image=rooibos, anchor="nw")
-        my_canvas3.create_image(400,0, image=peppermint, anchor="nw")
-        my_canvas3.create_image(800,0, image=greantea, anchor="nw")
-        my_canvas3.create_image(0,200, image=cinnamon, anchor="nw")
-        my_canvas3.create_image(400,200, image=chamomile, anchor="nw")
-        my_canvas3.create_image(800,200, image=ceylon, anchor="nw")
+        my_canvas3.create_image(50,300, image=rooibos, anchor="nw")
+        my_canvas3.create_image(350,300, image=peppermint, anchor="nw")
+        my_canvas3.create_image(600,300, image=greantea, anchor="nw")
+        my_canvas3.create_image(60,550, image=cinnamon, anchor="nw")
+        my_canvas3.create_image(240,550, image=chamomile, anchor="nw")
+        my_canvas3.create_image(580,500, image=ceylon, anchor="nw")
     root.bind('<Configure>', resized)
 
 
