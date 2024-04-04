@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 from PIL import ImageTk, Image
 
+
 def open_coffee_options():
     # Hide the main menu buttons
     button1.destroy()
@@ -125,12 +126,14 @@ def open_tea_options():
         my_canvas3.create_image(600,300, image=greentea, anchor="nw", tags="greentea")
         my_canvas3.create_image(60,550, image=cinnamon, anchor="nw", tags="cinnamon")
         my_canvas3.create_image(240,550, image=chamomile, anchor="nw", tags="chamomile")
-        my_canvas3.create_image(580,500, image=ceylon, anchor="nw", tags="ceylon")
+        my_canvas3.create_image(570,500, image=ceylon, anchor="nw", tags="ceylon")
         # Add text under each image
-        
-
-
-
+        my_canvas3.create_text(100, 480, text="Rooibos", font=("Arial", 14), anchor="nw")
+        my_canvas3.create_text(370, 480, text="Peppermint", font=("Arial", 14), anchor="nw")
+        my_canvas3.create_text(635, 480, text="Green Tea", font=("Arial", 14), anchor="nw")
+        my_canvas3.create_text(95, 710, text="Cinnamon", font=("Arial", 14), anchor="nw")
+        my_canvas3.create_text(380, 710, text="Chamomile", font=("Arial", 14), anchor="nw")
+        my_canvas3.create_text(670, 710, text="Ceylon", font=("Arial", 14), anchor="nw")
 
     root.bind('<Configure>', resized)
 
