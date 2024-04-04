@@ -8,27 +8,43 @@ def open_coffee_options():
     button3.destroy()
     
     # Create a new frame for coffee options
-    coffee_frame = Frame(root, bg="white")
-    coffee_frame.place(relx=0.5, rely=0.5, anchor=CENTER)
+    coffee_frame = Frame(root)
+    coffee_frame.place(relx=0.5, rely=0.5, anchor="center")
+    # define image
+    coffee_bg = PhotoImage(file="images/c-beans.png")
+
+    # create a canvas
+    my_canvas2 = Canvas(coffee_frame, width=1600, height=900)
+    my_canvas2.pack(fill="both", expand=True)
+
+    my_canvas2.create_image(0,0, image=coffee_bg, anchor="nw")
+    
     
     # Add background image to the frame
-    coffee_bg = Image.open("images/coffee_options.jpeg")
-    coffee_bg = coffee_bg.resize((1480, 876), Image.LANCZOS)
-    coffee_bg = ImageTk.PhotoImage(coffee_bg)
-    bg_label = Label(coffee_frame, image=coffee_bg)
-    bg_label.image = coffee_bg  # Keep a reference to avoid garbage collection
-    bg_label.pack(fill="both", expand=True)
+    def resized(e):
+        global coffee_bg, resized_coffee_bg, new_coffee_bg
+        # Open the image
+        coffee_bg = Image.open("images/c-beans.png")
+        # Resize the image
+        resized_coffee_bg = coffee_bg.resize((1600, 900), Image.LANCZOS)
+        # Define image again
+        new_coffee_bg = ImageTk.PhotoImage(resized_coffee_bg)
+        # Add it back to the canvas
+        my_canvas2.create_image(0,0, image=new_coffee_bg, anchor="nw")
+        # Read the text
+        my_canvas2.create_text(400, 100, text="ArdaCiti Coffee Shop", font=("Segoe Script", 40))
+        my_canvas2.create_text(400, 150, text="The Best In Town", font=("Segoe Script", 20))
+    
+    root.bind('<Configure>', resized)
 
-    text_label = Label(coffee_frame, text="ArdaCiti Coffee Shop", font=("Segoe Script", 40))
-    text_label.pack(pady=20)
-    #my_canvas.create_text(400, 150, text="The Best In Town", font=("Segoe Script", 20) )
+    
 
 
 
 
 
 root = Tk()
-root.geometry("1480x1076")
+root.geometry("1600x900")
 
 # Define image
 bg = PhotoImage(file="images/c-beans.png")
@@ -54,7 +70,7 @@ def resizer(e):
     # Open the image
     bg1 = Image.open("images/c-beans.png")
     # resize the image
-    resized_bg = bg1.resize((1480, 876), Image.LANCZOS)
+    resized_bg = bg1.resize((1600, 900), Image.LANCZOS)
     # Define image again
     new_bg = ImageTk.PhotoImage(resized_bg)
     # Add it back to the canvas
