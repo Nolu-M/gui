@@ -10,20 +10,29 @@ def open_coffee_options():
     # Create a new frame for coffee options
     coffee_frame = Frame(root)
     coffee_frame.place(relx=0.5, rely=0.5, anchor="center")
-    # define image
+    # define images
     coffee_bg = PhotoImage(file="images/c-beans.png")
+    cuppaccino = PhotoImage(file="images/cuppaccino.png")
+    expresso = PhotoImage(file="images/expresso.png")
+    latte = PhotoImage(file="images/latte.png")
+    macch = PhotoImage(file="images/macch.png")
+    mocha = PhotoImage(file="images/mocha.png")
+    ameri = PhotoImage(file="images/ameri.png")
+
 
     # create a canvas
     my_canvas2 = Canvas(coffee_frame, width=1600, height=900)
     my_canvas2.pack(fill="both", expand=True)
 
     my_canvas2.create_image(0,0, image=coffee_bg, anchor="nw")
+
+
     
     # Add background image to the frame
     def resized(e):
         global coffee_bg, resized_coffee_bg, new_coffee_bg
         # Open the image
-        coffee_bg = Image.open("images/c-beans.png")
+        coffee_bg = Image.open("images/c-beans.png", )
         # Resize the image
         resized_coffee_bg = coffee_bg.resize((1600, 900), Image.LANCZOS)
         # Define image again
@@ -33,7 +42,15 @@ def open_coffee_options():
         # Read the text
         my_canvas2.create_text(400, 100, text="ArdaCiti Coffee Shop", font=("Segoe Script", 40))
         my_canvas2.create_text(400, 150, text="The Best In Town", font=("Segoe Script", 20))
-    
+        # Add coffee options
+        my_canvas2.create_image(0,0, image=cuppaccino, anchor="nw")
+        my_canvas2.create_image(400,0, image=expresso, anchor="nw")
+        my_canvas2.create_image(800,0, image=latte, anchor="nw")
+        my_canvas2.create_image(0,200, image=macch, anchor="nw")
+        my_canvas2.create_image(400,200, image=mocha, anchor="nw")
+        my_canvas2.create_image(800,200, image=ameri, anchor="nw")
+
+
     root.bind('<Configure>', resized)
 
 def open_tea_options():
@@ -68,7 +85,6 @@ def open_tea_options():
         # Read the text
         my_canvas3.create_text(400, 100, text="ArdaCiti Coffee Shop", font=("Segoe Script", 40))
         my_canvas3.create_text(400, 150, text="The Best In Town", font=("Segoe Script", 20))
-    
     root.bind('<Configure>', resized)
 
 
@@ -111,7 +127,6 @@ def resizer(e):
     # Read the text
     my_canvas.create_text(400, 100, text="ArdaCiti Coffee Shop", font=("Segoe Script", 40))
     my_canvas.create_text(400, 150, text="The Best In Town", font=("Segoe Script", 20) )
-
 root.bind('<Configure>', resizer)  
 
 
