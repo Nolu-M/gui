@@ -12,12 +12,13 @@ def open_coffee_options():
     coffee_frame.place(relx=0.5, rely=0.5, anchor="center")
     # define images
     coffee_bg = PhotoImage(file="images/c-beans.png")
-    cuppaccino = PhotoImage(file="images/cuppaccino.png")
-    expresso = PhotoImage(file="images/expresso.png")
-    latte = PhotoImage(file="images/latte.png")
-    macch = PhotoImage(file="images/macch.png")
-    mocha = PhotoImage(file="images/mocha.png")
-    ameri = PhotoImage(file="images/ameri.png")
+    # coffee options
+    cuppaccino = PhotoImage(file="images/cuppaccino.png").subsample(3)
+    expresso = PhotoImage(file="images/expresso.png").subsample(3)
+    latte = PhotoImage(file="images/latte.png").subsample(3)
+    macch = PhotoImage(file="images/macch.png").subsample(2)
+    mocha = PhotoImage(file="images/mocha.png").subsample(3)
+    ameri = PhotoImage(file="images/ameri.png").subsample(3)
 
 
     # create a canvas
@@ -43,12 +44,12 @@ def open_coffee_options():
         my_canvas2.create_text(400, 100, text="ArdaCiti Coffee Shop", font=("Segoe Script", 40))
         my_canvas2.create_text(400, 150, text="The Best In Town", font=("Segoe Script", 20))
         # Add coffee options
-        my_canvas2.create_image(0,0, image=cuppaccino, anchor="nw")
-        my_canvas2.create_image(400,0, image=expresso, anchor="nw")
-        my_canvas2.create_image(800,0, image=latte, anchor="nw")
-        my_canvas2.create_image(0,200, image=macch, anchor="nw")
-        my_canvas2.create_image(400,200, image=mocha, anchor="nw")
-        my_canvas2.create_image(800,200, image=ameri, anchor="nw")
+        my_canvas2.create_image(50,300, image=cuppaccino, anchor="nw")
+        my_canvas2.create_image(300,300, image=expresso, anchor="nw")
+        my_canvas2.create_image(600,280, image=latte, anchor="nw")
+        my_canvas2.create_image(-20,500, image=macch, anchor="nw")
+        my_canvas2.create_image(310,500, image=mocha, anchor="nw")
+        my_canvas2.create_image(580,500, image=ameri, anchor="nw")
 
 
     root.bind('<Configure>', resized)
